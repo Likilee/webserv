@@ -1,0 +1,7 @@
+server { #comment1
+location / #comment2
+	{ #comment3
+		allow GET POST; #comment4
+		root /www/; #comment5
+	} #comment6
+} #comment7

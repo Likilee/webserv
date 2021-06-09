@@ -1,5 +1,6 @@
 #include "WebServer.hpp"
 #include "ServerFD.hpp"
+#include "libft.hpp"
 #include <iostream>
 #include <fcntl.h>
 
@@ -11,11 +12,14 @@ bool WebServer::isValidConfig(char *config_file)
 	if (fd == -1)
 		return (false);
 
+
 }
 
 void WebServer::initWith(char *config_file)
 {
-
+	int config_fd;
+	std::vector<std::string> config_token;
+	config_fd = open(config_file, O_RDONLY);
 }
 
 void WebServer::run()

@@ -11,6 +11,7 @@ private:
 	std::string root_dir;
 	std::vector<std::string> index_list;
 	std::vector<std::string> allow_method;
+	std::string auth_message;
 	std::string auth_file;
 	bool auto_index;
 
