@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-        <mxGraphModel dx="1050" dy="1056" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="756" dy="431" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="WIyWlLk6GJQsqaUBKTNV-0"/>
                 <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/>
@@ -10,30 +10,27 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="vcVR1cKfBz68j4FEzsIe-17" value="WebServer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-                    <mxGeometry x="245" y="10" width="230" height="190" as="geometry"/>
+                    <mxGeometry x="245" y="10" width="230" height="164" as="geometry"/>
                 </mxCell>
-                <mxCell id="vcVR1cKfBz68j4FEzsIe-18" value="- fd_pool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
+                <mxCell id="vcVR1cKfBz68j4FEzsIe-18" value="FDPool fd_pool[FD_MAX]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
                     <mxGeometry y="26" width="230" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="vcVR1cKfBz68j4FEzsIe-21" value="file_discriptors" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
+                <mxCell id="vcVR1cKfBz68j4FEzsIe-21" value="int open_fd_count" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
                     <mxGeometry y="52" width="230" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="vcVR1cKfBz68j4FEzsIe-22" value="fd_pool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
-                    <mxGeometry y="78" width="230" height="26" as="geometry"/>
-                </mxCell>
                 <mxCell id="vcVR1cKfBz68j4FEzsIe-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
-                    <mxGeometry y="104" width="230" height="8" as="geometry"/>
+                    <mxGeometry y="78" width="230" height="8" as="geometry"/>
                 </mxCell>
                 <mxCell id="vcVR1cKfBz68j4FEzsIe-54" value="+ bool isValidConfig(char *configfile)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
-                    <mxGeometry y="112" width="230" height="26" as="geometry"/>
+                    <mxGeometry y="86" width="230" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="vcVR1cKfBz68j4FEzsIe-55" value="+ void initWith(Char *configfile)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
-                    <mxGeometry y="138" width="230" height="26" as="geometry"/>
+                    <mxGeometry y="112" width="230" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="vcVR1cKfBz68j4FEzsIe-56" value="+ void run()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-17" vertex="1">
-                    <mxGeometry y="164" width="230" height="26" as="geometry"/>
+                    <mxGeometry y="138" width="230" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="vcVR1cKfBz68j4FEzsIe-23" value="&lt;Abstract&gt;&#10;FileDiscriptor" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+                <mxCell id="vcVR1cKfBz68j4FEzsIe-23" value="&lt;Abstract&gt;&#10;FDPool" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
                     <mxGeometry x="280" y="302" width="160" height="108" as="geometry"/>
                 </mxCell>
                 <mxCell id="vcVR1cKfBz68j4FEzsIe-24" value="- int fd" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="vcVR1cKfBz68j4FEzsIe-23" vertex="1">

@@ -19,6 +19,9 @@ public:
 	Location(const Location &from);
 	~Location();
 	Location	&operator=(const Location &rvalue);
+
+	//test
+	void showParseData();
 };
 
 #endif

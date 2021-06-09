@@ -16,6 +16,14 @@ private:
 	std::map<int, std::string> error_pages;
 	std::map<std::string, Location> locations;
 public:
+	int	getPort();
+	std::string getServerName();
+	std::string getAccessLogPath();
+	std::string getErrorLogPath();
+	std::string getErrorPage(int status_code);
+	Location &getLocation(const std::string &route);
+	//test
+	void showParseData();
 };
 
 #endif
