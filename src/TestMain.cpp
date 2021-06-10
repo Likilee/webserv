@@ -70,12 +70,22 @@ TEST(ConfigParser, parseErrorPage)
 	tokens.push_back("/www/404error.html;");
 	parser.parseErrorPage(tokens.begin(), error_page);
 	tokens2.push_back("error_page");
-	tokens.push_back("404");
+	tokens2.push_back("404");
+	tokens2.push_back("501");
+	tokens2.push_back("/www;");
+	parser.parseErrorPage(tokens2.begin(), error_page);
 	ASSERT_STREQ(error_page[404].c_str(), "/www/404error.html");
 	ASSERT_STREQ(error_page[405].c_str(), "/www/404error.html");
 	ASSERT_STREQ(error_page[406].c_str(), "/www/404error.html");
-	ASSERT_STREQ(error_page[501].c_str(), "");
+	ASSERT_STREQ(error_page[501].c_str(), "/www");
+	// ASSERT_EQ(error_page.size(), 3)
 }
+
+// TEST(ConfigParser, parseLocation)
+// {
+// 	ConfigParser parser;
+// 	std::vector<std::string> tokens;
+// }
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);

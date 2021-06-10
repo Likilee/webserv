@@ -43,9 +43,17 @@ std::vector<std::string> ConfigParser::StringToToken(const std::string &src)
 	ft_split(src, " \t\n", result);
 	return (result);
 }
+
 bool ConfigParser::finishWithSemiColon(std::string &token)
 {
 	if(token[token.length() - 1] == ';')
+		return (true);
+	return (false);
+}
+
+bool ConfigParser::StartWithSlash(std::string &token)
+{
+	if (token[0] == '/')
 		return (true);
 	return (false);
 }
@@ -83,7 +91,7 @@ void ConfigParser::parseErrorPage(std::vector<std::string>::iterator token_itr, 
 
 	if (finishWithSemiColon(token))
 		throw(ErrorException(error_message.c_str()));
-	while (false == finishWithSemiColon(*temp_itr))
+	while (false == StartWithSlash(*temp_itr))
 		++temp_itr;
 	std::string error_page_path = *temp_itr;
 	error_page_path.erase(error_page_path.length() - 1, 1);
