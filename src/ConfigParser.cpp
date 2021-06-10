@@ -19,7 +19,7 @@ std::string ConfigParser::fileToString(const std::string &file)
 	return (result);
 }
 
-std::string &ConfigParser::EraseComment(std::string &target)
+std::string &ConfigParser::eraseComment(std::string &target)
 {
 	size_t start;
 	size_t end;
@@ -37,7 +37,7 @@ std::string &ConfigParser::EraseComment(std::string &target)
 	return (target);
 }
 
-std::vector<std::string> ConfigParser::StringToToken(const std::string &src)
+std::vector<std::string> ConfigParser::stringToToken(const std::string &src)
 {
 	std::vector<std::string> result;
 	ft_split(src, " \t\n", result);
@@ -70,6 +70,11 @@ int ConfigParser::parselistenPort(std::vector<std::string>::iterator token_itr)
 			throw(ErrorException(error_message.c_str()));
 	token.erase(token.length() - 1, 1);
 	return (ft_atoi(token));
+}
+
+int ConfigParser::parseWorkerConnection(std::vector<std::string>::iterator token_itr)
+{
+	return (parselistenPort(token_itr));
 }
 
 std::string ConfigParser::parseOnlyOneStringToken(std::vector<std::string>::iterator token_itr)

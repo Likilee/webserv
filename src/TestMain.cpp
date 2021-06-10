@@ -13,22 +13,22 @@ TEST(ConfigParser, fileToString)
 	ASSERT_STREQ(str.c_str(),str_cmp.c_str());
 }
 
-TEST(ConfigParser, EraseComment)
+TEST(ConfigParser, eraseComment)
 {
 	ConfigParser parser;
 	std::string str = parser.fileToString("./test_res/configparser/file1");
-	parser.EraseComment(str);
+	parser.eraseComment(str);
 	std::string str_cmp = "server { \nlocation / \n\t{ \n\t\tallow GET POST; \n\t\troot /www/; \n\t} \n} ";
 	ASSERT_STREQ(str.c_str(),str_cmp.c_str());
 }
 
-TEST(ConfigParser, StringToToken)
+TEST(ConfigParser, stringToToken)
 {
 	ConfigParser parser;
 	std::string str = parser.fileToString("./test_res/configparser/file1");
-	parser.EraseComment(str);
+	parser.eraseComment(str);
 
-	std::vector<std::string> token = parser.StringToToken(str);
+	std::vector<std::string> token = parser.stringToToken(str);
 	std::string token_array[] =
 	{"server","{","location","/","{","allow","GET","POST;","root","/www/;","}","}"};
 	std::vector<std::string> token_cmp;
@@ -46,6 +46,15 @@ TEST(ConfigParser, parselistenPort)
 	tokens.push_back("listen");
 	tokens.push_back("8080;");
 	EXPECT_EQ(parser.parselistenPort(tokens.begin()), 8080);
+}
+
+TEST(ConfigParser, parseWorkerConnection)
+{
+	ConfigParser parser;
+	std::vector<std::string> tokens;
+	tokens.push_back("worker_connection");
+	tokens.push_back("4096;");
+	EXPECT_EQ(parser.parselistenPort(tokens.begin()), 4096);
 }
 
 TEST(ConfigParser, parseOnlyOneStringToken)
