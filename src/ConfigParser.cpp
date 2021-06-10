@@ -115,3 +115,13 @@ std::string ConfigParser::parseLocation(std::vector<std::string>::iterator token
 	return (token);
 }
 
+std::vector<std::string> ConfigParser::parseIndexList(std::vector<std::string>::iterator token_itr)
+{
+	std::vector<std::string> index_list;
+
+	while (false == finishWithSemiColon(*++token_itr))
+		index_list.push_back(*token_itr);
+	(*token_itr).erase((*token_itr).length() - 1, 1);
+	index_list.push_back(*token_itr);
+	return (index_list);
+}

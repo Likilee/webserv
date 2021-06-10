@@ -90,6 +90,19 @@ TEST(ConfigParser, parseLocation)
 	ASSERT_STREQ(parser.parseLocation(tokens.begin()).c_str(), "/webserv/");
 }
 
+TEST(ConfigParser, parseIndexList)
+{
+	ConfigParser parser;
+	std::vector<std::string> tokens;
+	std::vector<std::string> index;
+	tokens.push_back("index");
+	tokens.push_back("index.html");
+	tokens.push_back("index.php;");
+	index = parser.parseIndexList(tokens.begin());
+	ASSERT_STREQ(index[0].c_str(), "index.html");
+	ASSERT_STREQ(index[1].c_str(), "index.php");
+}
+
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
