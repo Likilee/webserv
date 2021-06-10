@@ -78,14 +78,17 @@ TEST(ConfigParser, parseErrorPage)
 	ASSERT_STREQ(error_page[405].c_str(), "/www/404error.html");
 	ASSERT_STREQ(error_page[406].c_str(), "/www/404error.html");
 	ASSERT_STREQ(error_page[501].c_str(), "/www");
-	// ASSERT_EQ(error_page.size(), 3)
+	ASSERT_EQ(error_page.size(), 4);
 }
 
-// TEST(ConfigParser, parseLocation)
-// {
-// 	ConfigParser parser;
-// 	std::vector<std::string> tokens;
-// }
+TEST(ConfigParser, parseLocation)
+{
+	ConfigParser parser;
+	std::vector<std::string> tokens;
+	tokens.push_back("location");
+	tokens.push_back("/webserv/");
+	ASSERT_STREQ(parser.parseLocation(tokens.begin()).c_str(), "/webserv/");
+}
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);

@@ -51,7 +51,7 @@ bool ConfigParser::finishWithSemiColon(std::string &token)
 	return (false);
 }
 
-bool ConfigParser::StartWithSlash(std::string &token)
+bool ConfigParser::startWithSlash(std::string &token)
 {
 	if (token[0] == '/')
 		return (true);
@@ -91,7 +91,7 @@ void ConfigParser::parseErrorPage(std::vector<std::string>::iterator token_itr, 
 
 	if (finishWithSemiColon(token))
 		throw(ErrorException(error_message.c_str()));
-	while (false == StartWithSlash(*temp_itr))
+	while (false == startWithSlash(*temp_itr))
 		++temp_itr;
 	std::string error_page_path = *temp_itr;
 	error_page_path.erase(error_page_path.length() - 1, 1);
@@ -104,3 +104,14 @@ void ConfigParser::parseErrorPage(std::vector<std::string>::iterator token_itr, 
 		token = *++token_itr;
 	}
 }
+
+std::string ConfigParser::parseLocation(std::vector<std::string>::iterator token_itr)
+{
+	std::string token = *++token_itr;
+	std::string error_message = "Config file have wrong token : " + token;
+
+	if (false == startWithSlash(token))
+		throw(ErrorException(error_message.c_str()));
+	return (token);
+}
+
