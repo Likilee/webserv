@@ -103,6 +103,19 @@ TEST(ConfigParser, parseIndexList)
 	ASSERT_STREQ(index[1].c_str(), "index.php");
 }
 
+TEST(ConfigParser, parseAllow)
+{
+	ConfigParser parser;
+	std::vector<std::string> tokens;
+	std::vector<std::string> method;
+	tokens.push_back("allow");
+	tokens.push_back("GET");
+	tokens.push_back("POST;");
+	method = parser.parseIndexList(tokens.begin());
+	ASSERT_STREQ(method[0].c_str(), "GET");
+	ASSERT_STREQ(method[1].c_str(), "POST");
+}
+
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

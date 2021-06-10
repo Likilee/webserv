@@ -125,3 +125,8 @@ std::vector<std::string> ConfigParser::parseIndexList(std::vector<std::string>::
 	index_list.push_back(*token_itr);
 	return (index_list);
 }
+
+std::vector<std::string> ConfigParser::parseAllow(std::vector<std::string>::iterator token_itr)
+{
+	return (parseIndexList(token_itr));
+}

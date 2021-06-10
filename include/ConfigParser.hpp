@@ -25,6 +25,8 @@ public:
 	void parseErrorPage(std::vector<std::string>::iterator token_itr, std::map<int, std::string> &error_page);
 	std::string parseLocation(std::vector<std::string>::iterator token_itr);
 	std::vector<std::string> parseIndexList(std::vector<std::string>::iterator token_itr);
+	std::vector<std::string> parseAllow(std::vector<std::string>::iterator token_itr);
+
 };
 
 #endif
